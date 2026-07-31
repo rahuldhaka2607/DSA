@@ -1,0 +1,99 @@
+Difference Between Call by Value and Call by Reference in C++
+
+Functions in C++ receive arguments either by call by value or call by reference. These parameter passing methods determine whether a function works on a copy of the data or the original variable.
+
+Call by Value passes a copy of the argument to the function.
+Call by Reference passes a reference to the original variable, allowing direct modification.
+
+Actual Parameters vs Formal Parameters
+Before understanding these methods, it is important to know the two types of function parameters.
+
+Actual Parameters (Arguments): Values passed during the function call.
+Formal Parameters: Parameters declared in the function definition that receive the arguments
+
+For example:
+
+
+
+
+#include <iostream>
+using namespace std;
+
+void display(int x) {    // x is a formal parameter
+    cout << x;
+}
+
+int main() {
+    int num = 10;
+    display(num);        // num is an actual parameter
+    return 0;
+}
+
+
+Call by Value
+In call by value, the function receives a copy of the original variable. Changes made inside the function affect only the copied value, leaving the original variable unchanged.
+
+Keeps the original variable unchanged after the function call.
+Suitable for small data types such as int and char.
+Useful when the function only needs to read the value.
+
+#include <iostream>
+using namespace std;
+
+// Function receives a copy
+void increment(int num)
+{
+    num++;
+    cout << "Inside function: " << num << endl;
+}
+
+int main()
+{
+    int number = 5;
+
+    increment(number);
+
+    cout << "Outside function: " << number << endl;
+
+    return 0;
+}
+
+Explanation
+
+number is passed by value to increment(), a copy of number is stored in num.
+Incrementing num changes only the copied value and the original variable number remains unchanged.
+
+
+Call by Reference
+In call by reference, the function receives a reference to the original variable instead of a copy. As both parameters refer to the same memory location, changes made inside the function directly modify the original variable.
+
+Avoids copying large objects, improving performance.
+Allows the function to modify the original variable.
+Commonly used for large objects or output parameters.
+
+#include <iostream>
+using namespace std;
+
+// Function receives a reference
+void increment(int& num)
+{
+    num++;
+    cout << "Inside function: " << num << endl;
+}
+
+int main()
+{
+    int number = 5;
+
+    increment(number);
+
+    cout << "Outside function: " << number << endl;
+
+    return 0;
+}
+
+Explanation
+
+number is passed by reference using int&, num becomes another name for number.
+Incrementing num directly modifies the original variable and the updated value is visible after the function returns.
+
