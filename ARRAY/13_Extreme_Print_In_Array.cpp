@@ -8,10 +8,7 @@ int main(){
     int start=0;
     int end=size-1;
 
-    while(true){
-        if(start>end){
-            break;
-        }
+    while(start<=end){
 
         if(start==end){
             cout<<arr[start]<<" ";
@@ -26,4 +23,4 @@ int main(){
     }
 
     return 0;
-}
+} 
