@@ -4,23 +4,42 @@ using namespace std;
 
 void findMissing(int a[], int n)
 {
-    // Mark numbers that are present
-    for (int i = 0; i < n; i++)
-    {
-        int index = abs(a[i]);
+    // // Mark numbers that are present
+    // for (int i = 0; i < n; i++)
+    // {
+    //     int index = abs(a[i]);
 
-        if (a[index - 1] > 0)
-        {
-            a[index - 1] *= -1;
+    //     if (a[index - 1] > 0)
+    //     {
+    //         a[index - 1] *= -1;
+    //     }
+    // }
+
+    // // Find missing numbers
+    // for (int i = 0; i < n; i++)
+    // {
+    //     if (a[i] > 0)
+    //     {
+    //         cout << i + 1 << " ";
+    //     }
+    // }
+
+
+    for (int i = 0; i < n - 1; i++) {
+
+        for (int j = 0; j < n - i - 1; j++) {
+
+            if (a[j] > a[j + 1]) {
+                swap(a[j], a[j + 1]);
+            }
         }
     }
-
-    // Find missing numbers
-    for (int i = 0; i < n; i++)
+   for (int i = 0; i < n; i++)
     {
-        if (a[i] > 0)
+        if (a[i] != i + 1)
         {
-            cout << i + 1 << " ";
+            cout << "Missing number = " << i + 1;
+            return;
         }
     }
 }
