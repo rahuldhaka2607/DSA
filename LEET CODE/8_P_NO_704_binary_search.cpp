@@ -9,6 +9,7 @@ public:
 
             int mid = start + (end - start) / 2;
 
+            
             if (nums[mid] == target) {
                 return mid;
             }
